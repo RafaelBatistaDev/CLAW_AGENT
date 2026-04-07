@@ -33,6 +33,8 @@ Assistente inteligente de código para análise, refatoração, documentação e
 
 ## 🚀 Começar em 30 segundos
 
+### Opção 1: Via GitHub (Recomendado)
+
 ```bash
 # 1. Clone
 git clone https://github.com/RafaelBatistaDev/CLAW_AGENT.git
@@ -46,6 +48,30 @@ nano ~/.claw/config/.claude.json
 # 4. Use!
 agent analyze seu_arquivo.py
 ```
+
+### Opção 2: Via ZIP (Sem Git)
+
+```bash
+# 1. Descompacte
+unzip CLAW_AGENT_v1.0.1.zip -d claw-agent
+cd claw-agent
+
+# 2. Setup
+bash docs/setup/ACTIVATE.sh && source ~/.bashrc
+
+# 3. Configure chave (Google Gemini)
+nano ~/.claw/config/.claude.json
+
+# 4. Digite sua chave e salve (Ctrl+O, Enter, Ctrl+X)
+
+# 5. Use!
+agent analyze seu_arquivo.py
+```
+
+#### 📥 Baixar ZIP
+→ [CLAW_AGENT_v1.0.1.zip](https://github.com/RafaelBatistaDev/CLAW_AGENT/releases)
+
+---
 
 ---
 
