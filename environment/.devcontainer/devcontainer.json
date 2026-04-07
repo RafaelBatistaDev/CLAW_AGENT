@@ -1,0 +1,48 @@
+{
+  "name": "Claw Development Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/rust:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "GitHub.github-vscode-theme",
+        "eamodio.gitlens",
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "GitHub.copilot"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python3",
+        "[rust]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "rust-lang.rust-analyzer"
+        },
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        },
+        "files.exclude": {
+          "**/.git": true,
+          "**/target": true,
+          "**/__pycache__": true,
+          "**/*.pyc": true
+        }
+      }
+    }
+  },
+  "postCreateCommand": "bash /workspace/automation/my_scripts/setup.sh",
+  "remoteUser": "root",
+  "mounts": [
+    "source=${env:HOME}/.claw,target=/home/claw/.claw,type=bind,consistency=cached",
+    "source=${env:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached,readonly"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "profile": "default",
+  "note": "Replace API_KEYS with your actual credentials",
+  "apiKeys": {
+    "google": "${GOOGLE_GEMINI_API_KEY}",
+    "anthropic": "${ANTHROPIC_API_KEY}",
+    "github": "${GITHUB_TOKEN}",
+    "xai": "${XAI_API_KEY}"
+  },
+
+  "models": {
+    "primary": "gemini-2.0-flash",
+    "fallback": "claude-sonnet-4-6",
+    "codeGeneration": "gemini-2.0-flash",
+    "reasoning": "claude-sonnet-4-6"
+  },
+
+  "limits": {
+    "dailyRequests": 1000,
+    "maxTokensPerRequest": 16000,
+    "requestTimeoutMs": 30000,
+    "retryAttempts": 3,
+    "retryDelayMs": 1000
+  },
+
+  "workspace": {
+    "defaultLanguage": "auto-detect",
+    "agentMode": "professional",
+    "availableModes": ["professional", "creative", "minimal"],
+    "autoDetectFramework": true,
+    "allowedFileExtensions": [
+      ".rs", ".toml", ".md",
+      ".py", ".sh", ".json",
+      ".ts", ".tsx", ".js", ".jsx",
+      ".cs", ".cpp", ".h",
+      ".java", ".go", ".rb", ".php"
+    ]
+  },
+
+  "automation": {
+    "autoFormat": true,
+    "autoLint": true,
+    "enableTelemetry": false,
+    "saveHistory": true,
+    "maxHistoryEntries": 500
+  },
+
+  "agent": {
+    "name": "Claw",
+    "verbose": false,
+    "streamOutput": true,
+    "contextWindowStrategy": "sliding",
+    "maxContextMessages": 20,
+    "systemPromptPath": "~/.claw/prompts/system.md"
+  },
+
+  "paths": {
+    "binPath": "/usr/local/bin/claw",
+    "configPath": "~/.claw/config",
+    "logsPath": "~/.claw/logs",
+    "cachePath": "~/.claw/cache",
+    "historyPath": "~/.claw/history"
+  },
+
+  "logging": {
+    "level": "info",
+    "availableLevels": ["debug", "info", "warn", "error"],
+    "rotateAfterMb": 10,
+    "maxLogFiles": 5
+  }
+}
